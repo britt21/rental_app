@@ -49,6 +49,7 @@ dependencies:
   intl:
   json_path:
   page_transition:
+  get:
   path_provider:
   path_provider_android:
   path_provider_foundation:
