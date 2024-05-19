@@ -74,6 +74,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
         children: [
           FlutterFlowIconButton(
             borderRadius: 20,
+            fillColor: _model.ifmap ? Color(0xFFFF8842) : null  ,
             borderWidth: 1,
             buttonSize: 40,
             icon: Icon(
@@ -104,7 +105,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
             borderRadius: 20,
             borderWidth: 1,
             buttonSize: 40,
-            fillColor: Color(0xFFFF8842),
+            fillColor: _model.ifhome ? Color(0xFFFF8842) : null  ,
             icon: Icon(
               Icons.home_filled,
               color: FlutterFlowTheme.of(context).secondaryBackground,

@@ -1,4 +1,3 @@
-
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -11,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'bottom_nav.dart';
 
 
-
 class MapHomeWidget extends StatefulWidget {
   const MapHomeWidget({super.key});
 
@@ -22,6 +20,7 @@ class MapHomeWidget extends StatefulWidget {
 class _MapHomeWidgetState extends State<MapHomeWidget>
     with TickerProviderStateMixin {
   late MapHomeModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -104,17 +103,22 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
     super.dispose();
   }
 
+  var isVisible = false;
+
+
   @override
   Widget build(BuildContext context) {
 
-
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
+      onTap: () =>
+      _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme
+            .of(context)
+            .primaryBackground,
         body: SafeArea(
           top: true,
           child: Stack(
@@ -157,7 +161,9 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                         width: 100,
                         height: 60,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: FlutterFlowTheme
+                              .of(context)
+                              .alternate,
                           borderRadius: BorderRadius.circular(24),
                         ),
                         child: Row(
@@ -173,7 +179,9 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                                 icon: Icon(
                                   Icons.search,
                                   color:
-                                  FlutterFlowTheme.of(context).primaryText,
+                                  FlutterFlowTheme
+                                      .of(context)
+                                      .primaryText,
                                   size: 24,
                                 ),
                                 onPressed: () {
@@ -186,11 +194,13 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                               EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                               child: Text(
                                 'Lagos Island',
-                                style: FlutterFlowTheme.of(context)
+                                style: FlutterFlowTheme
+                                    .of(context)
                                     .bodyMedium
                                     .override(
                                   fontFamily: 'Raleway',
-                                  color: FlutterFlowTheme.of(context)
+                                  color: FlutterFlowTheme
+                                      .of(context)
                                       .primaryText,
                                   letterSpacing: 0,
                                   fontWeight: FontWeight.bold,
@@ -250,79 +260,91 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                     Stack(
                       children: [
                         // if (FFAppState().status == 1)
-                          Align(
-                            alignment: AlignmentDirectional(-1, 0),
-                            child: Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(80, 0, 0, 5),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  setState(() {
-                                    // FFAppState().status = 0;
-                                  });
-                                },
-                                child: Container(
-                                  width: 150,
-                                  height: 150,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(-1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 10, 0, 0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Resturants',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                              fontFamily: 'Readex Pro',
-                                              letterSpacing: 0,
+                        Align(
+                          alignment: AlignmentDirectional(-1, 0),
+                          child: Padding(
+                            padding:
+                            EdgeInsetsDirectional.fromSTEB(80, 0, 0, 5),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                setState(() {
+                                  // FFAppState().status = 0;
+                                });
+                              },
+                              child: Visibility(
+                                visible: isVisible,
+                                child: GestureDetector(
+                                  onTap: (){
+                                    isVisible = !isVisible;
+                                  },
+                                  child: Container(
+                                    width: 150,
+                                    height: 150,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme
+                                          .of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(-1, 0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20, 10, 0, 0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Resturants',
+                                              style: FlutterFlowTheme
+                                                  .of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Readex Pro',
+                                                letterSpacing: 0,
+                                              ),
                                             ),
-                                          ),
-                                          Text(
-                                            'Parks',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                              fontFamily: 'Readex Pro',
-                                              color: Color(0xFFFF8842),
-                                              letterSpacing: 0,
+                                            Text(
+                                              'Parks',
+                                              style: FlutterFlowTheme
+                                                  .of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Readex Pro',
+                                                color: Color(0xFFFF8842),
+                                                letterSpacing: 0,
+                                              ),
                                             ),
-                                          ),
-                                          Text(
-                                            'Water Slides',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                              fontFamily: 'Readex Pro',
-                                              letterSpacing: 0,
+                                            Text(
+                                              'Water Slides',
+                                              style: FlutterFlowTheme
+                                                  .of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Readex Pro',
+                                                letterSpacing: 0,
+                                              ),
                                             ),
-                                          ),
-                                          Text(
-                                            'Bustops',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                              fontFamily: 'Readex Pro',
-                                              letterSpacing: 0,
+                                            Text(
+                                              'Bustops',
+                                              style: FlutterFlowTheme
+                                                  .of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Readex Pro',
+                                                letterSpacing: 0,
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -330,6 +352,7 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                               ),
                             ),
                           ),
+                        ),
                       ],
                     ),
                     Align(
@@ -343,12 +366,15 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                           fillColor: Color(0x68505050),
                           icon: Icon(
                             Icons.auto_awesome_motion,
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: FlutterFlowTheme
+                                .of(context)
+                                .secondaryText,
                             size: 24,
                           ),
                           onPressed: () async {
+                            print("PSSSS");
                             setState(() {
-                              // FFAppState().status = 1;
+                              isVisible = !isVisible; // Toggle the value of isVisible
                             });
                           },
                         ),
@@ -366,11 +392,17 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                           fillColor: Color(0x68505050),
                           icon: Icon(
                             Icons.location_on_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: FlutterFlowTheme
+                                .of(context)
+                                .secondaryText,
                             size: 24,
                           ),
                           onPressed: () {
-                            print('IconButton pressed ...');
+                            setState(() {
+                              isVisible = !isVisible;
+
+                            });
+
                           },
                         ),
                       ),
@@ -409,11 +441,13 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                                 alignment: AlignmentDirectional(0, 0),
                                 child: Text(
                                   '1.5km',
-                                  style: FlutterFlowTheme.of(context)
+                                  style: FlutterFlowTheme
+                                      .of(context)
                                       .bodyMedium
                                       .override(
                                     fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
+                                    color: FlutterFlowTheme
+                                        .of(context)
                                         .secondaryBackground,
                                     letterSpacing: 0,
                                   ),
@@ -447,11 +481,13 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                                 alignment: AlignmentDirectional(0, 0),
                                 child: Text(
                                   '1.5km',
-                                  style: FlutterFlowTheme.of(context)
+                                  style: FlutterFlowTheme
+                                      .of(context)
                                       .bodyMedium
                                       .override(
                                     fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
+                                    color: FlutterFlowTheme
+                                        .of(context)
                                         .secondaryBackground,
                                     letterSpacing: 0,
                                   ),
@@ -489,11 +525,13 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                                     alignment: AlignmentDirectional(0, 0),
                                     child: Text(
                                       '1.5km',
-                                      style: FlutterFlowTheme.of(context)
+                                      style: FlutterFlowTheme
+                                          .of(context)
                                           .bodyMedium
                                           .override(
                                         fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
+                                        color: FlutterFlowTheme
+                                            .of(context)
                                             .secondaryBackground,
                                         letterSpacing: 0,
                                       ),
@@ -530,11 +568,13 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                                   alignment: AlignmentDirectional(0, 0),
                                   child: Text(
                                     '1.5km',
-                                    style: FlutterFlowTheme.of(context)
+                                    style: FlutterFlowTheme
+                                        .of(context)
                                         .bodyMedium
                                         .override(
                                       fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context)
+                                      color: FlutterFlowTheme
+                                          .of(context)
                                           .secondaryBackground,
                                       letterSpacing: 0,
                                     ),
@@ -571,11 +611,13 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
                                   alignment: AlignmentDirectional(0, 0),
                                   child: Text(
                                     '1.5km',
-                                    style: FlutterFlowTheme.of(context)
+                                    style: FlutterFlowTheme
+                                        .of(context)
                                         .bodyMedium
                                         .override(
                                       fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context)
+                                      color: FlutterFlowTheme
+                                          .of(context)
                                           .secondaryBackground,
                                       letterSpacing: 0,
                                     ),
@@ -612,17 +654,17 @@ class _MapHomeWidgetState extends State<MapHomeWidget>
 }
 
 
-
 class MapHomeModel extends FlutterFlowModel<MapHomeWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+
   // Model for bottom_nav component.
   late BottomNavModel bottomNavModel;
 
   @override
   void initState(BuildContext context) {
-    bottomNavModel = createModel(context, () => BottomNavModel(false,true));
+    bottomNavModel = createModel(context, () => BottomNavModel(false, true));
   }
 
   @override

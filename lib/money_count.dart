@@ -47,7 +47,7 @@ class _MoneyCountAnimationWhiteState extends State<MoneyCountAnimationWhite> {
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 3),
       tween: IntTween(
         begin: 0,
         end: widget.targetAmount,
