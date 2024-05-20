@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:rental_app/rental_home.dart';
 import 'package:rental_app/serarch_bg.dart';
-
 import 'bottom_nav.dart';
 
 
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
+
 
 
   final unfocusNode = FocusNode();
