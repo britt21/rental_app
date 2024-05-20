@@ -9,6 +9,7 @@ import 'bottom_nav.dart';
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
+
   final unfocusNode = FocusNode();
   // Model for search_bg component.
   late SearchBgModel searchBgModel;

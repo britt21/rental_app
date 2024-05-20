@@ -44,6 +44,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
     _model.onUpdate();
   }
 
+
   @override
   void initState() {
     super.initState();
